@@ -266,6 +266,22 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 .feature p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 .feature code { font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-subtle); padding: 1px 6px; border-radius: 5px; }
 
+/* ============================= EXTEND (MCP / SKILLS / SUBAGENTS) ============================= */
+.extend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.extend-card { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s; }
+.extend-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--shadow-md); }
+.ex-body { padding: 30px 28px 8px; }
+.ex-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.ex-icon { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-subtle); border: 1px solid var(--border); color: var(--accent); flex-shrink: 0; }
+.ex-icon svg { width: 22px; height: 22px; }
+.ex-head h3 { font-size: 19px; }
+.ex-head .ex-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+.ex-body > p { color: var(--text-secondary); font-size: 14.5px; line-height: 1.65; margin-bottom: 18px; }
+.ex-body > p b { color: var(--text-primary); font-weight: 600; }
+.ex-code { margin: 0 20px 20px; background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; margin-top: auto; }
+.ex-code .exc-head { font-family: var(--font-mono); font-size: 11px; color: #6b7d72; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.ex-code pre { padding: 14px 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 12px; line-height: 1.7; color: #c9d6cd; }
+
 /* ============================= CONFIG SPOTLIGHT ============================= */
 .config-panel { border: 1px solid var(--border); border-radius: calc(var(--radius) + 6px); background: linear-gradient(160deg, var(--bg-elev) 0%, var(--panel-tint) 100%); padding: clamp(32px, 5vw, 60px); position: relative; overflow: hidden; }
 .config-panel::after { content: ""; position: absolute; top: -40%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); opacity: 0.5; pointer-events: none; }
@@ -382,6 +398,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="nav-links" id="navLinks">
       <a href="#surfaces">Surfaces</a>
       <a href="#showcase">Interface</a>
+      <a href="#extend">Extend</a>
       <a href="#features">Features</a>
       <a href="#configure">Configure</a>
       <a href="#automate">Automate</a>
@@ -557,13 +574,84 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   </div>
 </section>
 
+<!-- ==================== EXTEND ==================== -->
+<section class="section" id="extend" style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <span class="eyebrow">Extend &amp; compose</span>
+      <h2>MCP, skills, and subagents &mdash; built in</h2>
+      <p>mux isn't a closed box. Plug in tool servers, encode repeatable procedures, and delegate scoped work to isolated agents &mdash; all configured in plain files or managed live in-app.</p>
+    </div>
+    <div class="extend-grid">
+
+      <div class="extend-card fade-in">
+        <div class="ex-body">
+          <div class="ex-head">
+            <span class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"/></svg></span>
+            <div><h3>MCP tool servers</h3><div class="ex-tag">/mcp &middot; mcp-servers.json</div></div>
+          </div>
+          <p>Define <b>stdio</b> or <b>HTTP</b> Model Context Protocol servers and mux connects live on startup &mdash; discovering each server's tools, exposing them to the model, and showing per-server connectivity. Add, edit, or remove servers without a restart.</p>
+        </div>
+        <div class="ex-code">
+          <div class="exc-head">mcp-servers.json</div>
+<pre>{
+  <span class="cm-str">"name"</span>: <span class="cm-str">"filesystem"</span>,
+  <span class="cm-str">"transport"</span>: <span class="cm-str">"stdio"</span>,
+  <span class="cm-str">"command"</span>: <span class="cm-str">"npx"</span>,
+  <span class="cm-str">"args"</span>: [<span class="cm-str">"-y"</span>, <span class="cm-str">"@mcp/server-fs"</span>]
+}</pre>
+        </div>
+      </div>
+
+      <div class="extend-card fade-in d1">
+        <div class="ex-body">
+          <div class="ex-head">
+            <span class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg></span>
+            <div><h3>Skills</h3><div class="ex-tag">/skills &middot; ~/.mux/skills</div></div>
+          </div>
+          <p>Versioned <b>Markdown-plus-code</b> capabilities that turn a fuzzy request into a fixed, deterministic procedure &mdash; the Markdown carries judgment, the code carries determinism. <b>46 curated defaults</b> ship on first run; author, import, and manage your own in-app.</p>
+        </div>
+        <div class="ex-code">
+          <div class="exc-head">SKILL.md</div>
+<pre><span class="cm-comment">---</span>
+<span class="cm-str">name</span>: git-commit
+<span class="cm-str">description</span>: Stage &amp; commit changes
+<span class="cm-str">mutates</span>: <span class="cm-kw">true</span>
+<span class="cm-str">commands</span>: [run]
+<span class="cm-comment">---</span></pre>
+        </div>
+      </div>
+
+      <div class="extend-card fade-in d2">
+        <div class="ex-body">
+          <div class="ex-head">
+            <span class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 21v-1a6 6 0 0 1 12 0v1M15 21v-1a5 5 0 0 1 7-4.5"/></svg></span>
+            <div><h3>Subagents</h3><div class="ex-tag">spawn_subagent &middot; subagents.json</div></div>
+          </div>
+          <p>Delegate a scoped sub-task to a named subagent. Each runs in an <b>isolated conversation</b> &mdash; its own system prompt, endpoint, and tool allow-list &mdash; and returns only its final answer, keeping the primary agent's context clean.</p>
+        </div>
+        <div class="ex-code">
+          <div class="exc-head">subagents.json</div>
+<pre>{
+  <span class="cm-str">"name"</span>: <span class="cm-str">"reviewer"</span>,
+  <span class="cm-str">"endpoint"</span>: <span class="cm-str">"gpt-oss-local"</span>,
+  <span class="cm-str">"allowTools"</span>: [<span class="cm-str">"read_file"</span>,
+    <span class="cm-str">"grep"</span>]
+}</pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ==================== FEATURES ==================== -->
 <section class="section" id="features">
   <div class="container">
     <div class="section-head center fade-in">
-      <span class="eyebrow">Built for builders</span>
-      <h2>Everything you need to build agents</h2>
-      <p>A deep, extensible toolbox for engineers building agents and agentic workflows &mdash; not a thin wrapper around a chat endpoint.</p>
+      <span class="eyebrow">The full toolbox</span>
+      <h2>And a whole lot more</h2>
+      <p>Beyond MCP, skills, and subagents, mux ships a deep set of capabilities for engineers building agents and agentic workflows &mdash; not a thin wrapper around a chat endpoint.</p>
     </div>
     <div class="features-grid">
 
