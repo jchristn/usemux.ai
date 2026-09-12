@@ -533,47 +533,60 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   <div class="container">
     <div class="section-head center fade-in">
       <span class="eyebrow">See it work</span>
-      <h2>A real system operator, not a text box</h2>
-      <p>mux turns the model into an agent that reads and writes files, runs commands, searches code, and browses the web &mdash; with you in the loop at every step.</p>
+      <h2>The same agent, on every surface</h2>
+      <p>mux turns the model into a real system operator &mdash; reading and writing files, running commands, browsing the web &mdash; and gives it to you in the terminal, the browser, and a native desktop app.</p>
     </div>
 
     <div class="showcase-row fade-in">
       <div class="sc-text">
-        <h3>Tool-driven from the first turn</h3>
-        <p>The model requests any of mux's built-in tools &mdash; edit, read, write, glob, grep, process execution, rendered web retrieval &mdash; and the calls are part of the conversation. Watch each one resolve, with timing and a live token/cost readout in the sidebar.</p>
+        <h3>The terminal UI, doing real work</h3>
+        <p>Ask in plain language and watch mux read files, write code, run commands, and search &mdash; each tool call part of the transcript, with a live sidebar tracking status, reasoning effort, time-to-first-token, context, and tokens per turn.</p>
         <ul class="sc-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Approval modal</b> &mdash; approve once, deny, or auto-approve for the session</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Live stats</b> &mdash; TTFT, streaming time, context, tokens, and cost per turn</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Concurrent background jobs</b> under a single-writer edit lease</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Sandboxing</b> &mdash; <code>read-only</code>, <code>workspace-write</code>, or unrestricted, plus tool allow/deny globs</span></li>
         </ul>
       </div>
-      <div class="sc-visual"><img src="assets/ss7.png" alt="mux interactive terminal UI showing tool calls and a live session sidebar" loading="lazy"></div>
+      <div class="sc-visual"><img src="assets/screenshots/tui-1.png" alt="mux terminal UI generating a FastAPI app with a live session sidebar showing effort, TTFT, and token stats" loading="lazy"></div>
     </div>
 
     <div class="showcase-row reverse fade-in">
       <div class="sc-text">
-        <h3>Switch models without touching code</h3>
-        <p>Endpoints live in JSON &mdash; each with its own adapter, base URL, model, auth, and reasoning effort. The picker (<code>Ctrl+E</code>) swaps the active endpoint mid-session, and bulk-imports every model from a running Ollama server in one step.</p>
+        <h3>A dashboard for the whole workspace</h3>
+        <p>Run <code>mux serve</code> and drive everything from the browser &mdash; a token-guarded local dashboard with chat, sessions, and usage analytics, plus one-glance counts of your endpoints, MCP servers, prompts, subagents, skills, hooks, and keybindings.</p>
         <ul class="sc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Any provider</b> &mdash; local Ollama, vLLM, LM Studio, or cloud OpenAI / Azure</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Per-endpoint</b> reasoning effort, auto-approval, and iteration caps</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Secrets by reference</b> &mdash; keep keys in env vars, not plaintext config</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Loopback-bound</b> and bearer-token guarded, hosted by a system-tray agent</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Manage everything in-browser</b> &mdash; endpoints, MCP, prompts, subagents, and skills</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Health, uptime, and active config</b> at a glance</span></li>
         </ul>
       </div>
-      <div class="sc-visual"><img src="assets/ss2.png" alt="mux endpoints and models picker listing dozens of local and cloud models" loading="lazy"></div>
+      <div class="sc-visual"><img src="assets/screenshots/web-0.png" alt="mux web dashboard home showing counts for endpoints, MCP servers, prompts, subagents, skills, hooks, and sessions" loading="lazy"></div>
     </div>
 
     <div class="showcase-row fade-in">
       <div class="sc-text">
-        <h3>Plans, tasks, and background jobs</h3>
-        <p>For a large request the model lays out a tracked plan and advances it as it goes. The shell draws a live checklist that updates in place, the sidebar shows <code>TASKS n/m</code>, and the plan persists across save and resume. Concurrent jobs run under a single-writer lease so file edits never collide.</p>
+        <h3>A native desktop app for daily driving</h3>
+        <p><code>mux Desktop</code> links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; tabbed conversations with AI-summarized titles; a command palette; and the full configuration surface.</p>
         <ul class="sc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Undo / redo</b> &mdash; roll a turn's file changes back and forward in any git repo</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Session export</b> &mdash; render a run to self-contained HTML + Markdown, server-free</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Auto-compaction</b> &mdash; older history is summarized before it overflows the context budget</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Per-response copy</b>, rename, export, and bulk-delete</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Light / dark / system</b> theming and a <code>Ctrl+K</code> command palette</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>The same <b>endpoints, MCP, skills, and subagents</b> managers, natively</span></li>
         </ul>
       </div>
-      <div class="sc-visual"><img src="assets/ss4.png" alt="mux terminal UI showing a detailed multi-turn agent session with a task plan and stats" loading="lazy"></div>
+      <div class="sc-visual"><img src="assets/screenshots/desktop-1.png" alt="mux desktop app showing a tabbed chat with syntax-highlighted C# code and a comparison table" loading="lazy"></div>
+    </div>
+
+    <div class="showcase-row reverse fade-in">
+      <div class="sc-text">
+        <h3>Observability, built in</h3>
+        <p>Every model call is recorded to a local SQLite database &mdash; tokens, cost, latency, time-to-first-token, streaming, and throughput. Explore it as charts over time, filtered by endpoint and model, in both the dashboard and the desktop app.</p>
+        <ul class="sc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Tokens, cost, latency, TTFT,</b> streaming, and throughput views</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Filter</b> by endpoint, model, and time range &mdash; hour, day, week, month</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Cost</b> derived from an editable <code>pricing.json</code></span></li>
+        </ul>
+      </div>
+      <div class="sc-visual"><img src="assets/screenshots/web-3.png" alt="mux usage dashboard showing token, cost, and latency charts with per-call history" loading="lazy"></div>
     </div>
 
   </div>
