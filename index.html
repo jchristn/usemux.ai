@@ -538,7 +538,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor"/></svg></div>
         <span class="cmd">mux Desktop</span>
         <h3>Cross-platform desktop app</h3>
-        <p>An Avalonia client that links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; conversations with AI-summarized titles; a command palette; the full configuration surface; and the usage dashboard.</p>
+        <p>An Avalonia client that links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; parallel conversation tabs; a command palette; the full configuration surface; the usage dashboard; and a UI localized into 11 languages.</p>
       </div>
 
     </div>
@@ -583,10 +583,11 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="showcase-row fade-in">
       <div class="sc-text">
         <h3>A native desktop app for daily driving</h3>
-        <p><code>mux Desktop</code> links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; tabbed conversations with AI-summarized titles; a command palette; and the full configuration surface.</p>
+        <p><code>mux Desktop</code> links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; parallel conversation tabs that each run their own agent turn concurrently; AI-summarized titles; a command palette; and the full configuration surface.</p>
         <ul class="sc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Per-response copy</b>, rename, export, and bulk-delete</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Light / dark / system</b> theming and a <code>Ctrl+K</code> command palette</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Parallel tabs</b> &mdash; switch between conversations mid-turn without blocking</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>11 languages</b> with a live switcher and right-to-left support, plus a <b>high-contrast</b> theme</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Per-response copy, rename, export, bulk-delete, and a <code>Ctrl+K</code> command palette</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>The same <b>endpoints, MCP, skills, and subagents</b> managers, natively</span></li>
         </ul>
       </div>
@@ -963,8 +964,8 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
       <a href="https://github.com/jchristn/mux/blob/main/sdk/typescript/README.md" target="_blank" rel="noopener" class="doc-card fade-in">
         <div class="doc-icon">&#128230;</div><h3>TypeScript &amp; Python SDKs</h3><p>Thin drivers over the JSONL contract with typed events and multi-turn threads.</p><span class="arrow">Read &rarr;</span>
       </a>
-      <a href="https://github.com/jchristn/mux/blob/main/DESKTOP_APP.md" target="_blank" rel="noopener" class="doc-card fade-in d1">
-        <div class="doc-icon">&#128421;&#65039;</div><h3>Desktop App Guide</h3><p>The Avalonia client &mdash; conversations, command palette, and in-app config.</p><span class="arrow">Read &rarr;</span>
+      <a href="https://github.com/jchristn/mux/blob/main/docs/DESKTOP.md" target="_blank" rel="noopener" class="doc-card fade-in d1">
+        <div class="doc-icon">&#128421;&#65039;</div><h3>Desktop App Guide</h3><p>The Avalonia client &mdash; parallel tabs, command palette, localization, and in-app config.</p><span class="arrow">Read &rarr;</span>
       </a>
       <a href="https://github.com/jchristn/mux/blob/main/CHANGELOG.md" target="_blank" rel="noopener" class="doc-card fade-in d2">
         <div class="doc-icon">&#128220;</div><h3>Changelog</h3><p>What's new across every release &mdash; the project moves fast.</p><span class="arrow">Read &rarr;</span>
