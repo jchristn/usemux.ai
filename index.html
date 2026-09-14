@@ -458,7 +458,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     </div>
     <div class="hero-meta fade-in d5">
       <span><span class="dot"></span> Local or remote inference</span>
-      <span><span class="dot"></span> TUI &middot; Web &middot; Desktop &middot; Headless</span>
+      <span><span class="dot"></span> TUI &middot; Web &middot; Desktop &middot; Editor &middot; Headless</span>
       <span><span class="dot"></span> MCP &middot; Skills &middot; Subagents</span>
     </div>
 
@@ -507,7 +507,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 <section class="section" id="surfaces">
   <div class="container">
     <div class="section-head center fade-in">
-      <span class="eyebrow">One engine, four surfaces</span>
+      <span class="eyebrow">One engine, five surfaces</span>
       <h2>Run it however you work</h2>
       <p>Every surface shares one core &mdash; <code>Mux.Core</code>. Start in the terminal, script it in CI, open the dashboard in a browser, or launch the desktop app. Same agent, same tools, same sessions.</p>
     </div>
@@ -539,6 +539,13 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         <span class="cmd">mux Desktop</span>
         <h3>Cross-platform desktop app</h3>
         <p>An Avalonia client that links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; parallel conversation tabs; a command palette; the full configuration surface; the usage dashboard; and a UI localized into 11 languages.</p>
+      </div>
+
+      <div class="surface-card fade-in d4">
+        <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <span class="cmd">VS Code</span>
+        <h3>Editor extension</h3>
+        <p>mux where you already write code: a streaming chat panel with in-editor tool approvals, inline commands and code actions (explain, fix, generate tests, refactor, commit message), editor context injection, and the same shared sessions &mdash; driven over the local mux server.</p>
       </div>
 
     </div>
@@ -972,6 +979,9 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
       </a>
       <a href="https://github.com/jchristn/mux/blob/main/docs/DESKTOP.md" target="_blank" rel="noopener" class="doc-card fade-in d1">
         <div class="doc-icon">&#128421;&#65039;</div><h3>Desktop App Guide</h3><p>The Avalonia client &mdash; parallel tabs, command palette, localization, and in-app config.</p><span class="arrow">Read &rarr;</span>
+      </a>
+      <a href="https://github.com/jchristn/mux/blob/main/docs/VSCODE.md" target="_blank" rel="noopener" class="doc-card fade-in d2">
+        <div class="doc-icon">&#128187;</div><h3>VS Code Extension</h3><p>The editor extension &mdash; chat panel, in-editor approvals, inline commands, context, and shared sessions.</p><span class="arrow">Read &rarr;</span>
       </a>
       <a href="https://github.com/jchristn/mux/blob/main/CHANGELOG.md" target="_blank" rel="noopener" class="doc-card fade-in d2">
         <div class="doc-icon">&#128220;</div><h3>Changelog</h3><p>What's new across every release &mdash; the project moves fast.</p><span class="arrow">Read &rarr;</span>
