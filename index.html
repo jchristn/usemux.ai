@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mux — Your AI agent, your models, your infrastructure</title>
-<meta name="description" content="mux is a Claude Code–class AI coding agent that runs on the backend and model you choose — from the terminal, a web dashboard, a desktop app, or fully headless. Backend-agnostic. Endlessly configurable. MIT licensed.">
+<meta name="description" content="mux is a Claude Code–class AI coding agent that runs on the backend and model you choose — from the terminal, a desktop app, a web dashboard, or your IDE (VS Code), plus fully headless. Backend-agnostic. Endlessly configurable. MIT licensed.">
 <meta property="og:title" content="mux — Your AI agent, your models, your infrastructure">
-<meta property="og:description" content="A Claude Code–class coding agent that runs on the backend and model you choose — terminal, web, desktop, or headless. Backend-agnostic. Endlessly configurable. MIT.">
+<meta property="og:description" content="A Claude Code–class coding agent that runs on the backend and model you choose — terminal, desktop, web, or IDE (VS Code), plus headless. Backend-agnostic. Endlessly configurable. MIT.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://usemux.ai">
 <meta name="twitter:card" content="summary_large_image">
@@ -447,7 +447,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     </h1>
     <p class="hero-sub fade-in d3">
       <strong>mux</strong> is a Claude Code&ndash;class coding agent that runs on the backend and model <em>you</em> choose &mdash;
-      from a terminal UI, a web dashboard, a desktop app, or fully headless. Backend-agnostic. Endlessly configurable. Zero vendor lock-in.
+      from a terminal UI, a desktop app, a web dashboard, or your IDE &mdash; plus fully headless. Backend-agnostic. Endlessly configurable. Zero vendor lock-in.
     </p>
     <div class="hero-ctas fade-in d4">
       <a href="#start" class="btn btn-primary btn-lg">Get Started</a>
@@ -458,7 +458,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     </div>
     <div class="hero-meta fade-in d5">
       <span><span class="dot"></span> Local or remote inference</span>
-      <span><span class="dot"></span> TUI &middot; Web &middot; Desktop &middot; Editor &middot; Headless</span>
+      <span><span class="dot"></span> TUI &middot; Desktop &middot; Web &middot; IDE</span>
       <span><span class="dot"></span> MCP &middot; Skills &middot; Subagents</span>
     </div>
 
@@ -507,9 +507,9 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 <section class="section" id="surfaces">
   <div class="container">
     <div class="section-head center fade-in">
-      <span class="eyebrow">One engine, five surfaces</span>
-      <h2>Run it however you work</h2>
-      <p>Every surface shares one core &mdash; <code>Mux.Core</code>. Start in the terminal, script it in CI, open the dashboard in a browser, or launch the desktop app. Same agent, same tools, same sessions.</p>
+      <span class="eyebrow">One engine, four surfaces</span>
+      <h2>Use it however you work</h2>
+      <p>Four main ways to consume mux &mdash; the terminal UI, the desktop app, the web dashboard, and the VS Code extension &mdash; all sharing one core (<code>Mux.Core</code>): same agent, same tools, same sessions. A conversation you start in one resumes in another. It's also fully headless: <code>mux print</code> streams JSONL for CI and any shell pipeline.</p>
     </div>
     <div class="surfaces-grid">
 
@@ -521,10 +521,10 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       </div>
 
       <div class="surface-card fade-in d1">
-        <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l3 3-3 3" transform="translate(0 -6)"/></svg></div>
-        <span class="cmd">mux print</span>
-        <h3>Headless &amp; scriptable</h3>
-        <p>Single-shot runs for scripting and automation. Stream plain text, one buffered JSON object, or machine-readable JSONL &mdash; one event per line. Drop mux into build steps, GitHub Actions, or any shell pipeline.</p>
+        <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor"/></svg></div>
+        <span class="cmd">mux Desktop</span>
+        <h3>Cross-platform desktop app</h3>
+        <p>An Avalonia client that links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; parallel conversation tabs; a command palette; the full configuration surface; the usage dashboard; and a UI localized into 11 languages.</p>
       </div>
 
       <div class="surface-card fade-in d2">
@@ -535,17 +535,10 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       </div>
 
       <div class="surface-card fade-in d3">
-        <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor"/></svg></div>
-        <span class="cmd">mux Desktop</span>
-        <h3>Cross-platform desktop app</h3>
-        <p>An Avalonia client that links the engine in-process: streaming chat with Markdown, tables, and syntax-highlighted code; parallel conversation tabs; a command palette; the full configuration surface; the usage dashboard; and a UI localized into 11 languages.</p>
-      </div>
-
-      <div class="surface-card fade-in d4">
         <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
         <span class="cmd">VS Code</span>
-        <h3>Editor extension</h3>
-        <p>mux where you already write code: a streaming chat panel with in-editor tool approvals, inline commands and code actions (explain, fix, generate tests, refactor, commit message), editor context injection, and the same shared sessions &mdash; driven over the local mux server.</p>
+        <h3>IDE-integrated (VS Code)</h3>
+        <p>mux where you already write code: a streaming chat panel with in-editor tool approvals, inline commands and code actions (explain, fix, generate tests, refactor, commit message), editor context injection, config management, and the same shared sessions &mdash; over the local mux server.</p>
       </div>
 
     </div>
