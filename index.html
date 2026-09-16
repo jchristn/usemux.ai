@@ -270,7 +270,6 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 .feature h3 { font-size: 16.5px; margin-bottom: 9px; }
 .feature p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 .feature code { font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-subtle); padding: 1px 6px; border-radius: 5px; }
-.new-tag { display: inline-block; margin-bottom: 12px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); background: var(--accent-subtle); border: 1px solid var(--border); padding: 3px 10px; border-radius: var(--radius-pill); }
 
 /* ============================= EXTEND (MCP / SKILLS / SUBAGENTS) ============================= */
 .extend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -420,7 +419,6 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   <div class="nav-inner">
     <a href="#" class="nav-brand"><img src="assets/logo-green.png" alt="mux logo"></a>
     <div class="nav-links" id="navLinks">
-      <a href="#whatsnew">What's New</a>
       <a href="#surfaces">Surfaces</a>
       <a href="#showcase">Interface</a>
       <a href="#extend">Extend</a>
@@ -544,62 +542,6 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         <h3>IDE-integrated (VS Code)</h3>
         <p>mux where you already write code: a streaming chat panel with in-editor tool approvals, inline commands and code actions (explain, fix, generate tests, refactor, commit message), editor context injection, config management, and the same shared sessions &mdash; over the local mux server.</p>
         <a class="surface-link" href="https://marketplace.visualstudio.com/items?itemName=usemux.mux-ai" target="_blank" rel="noopener">Install from the VS Code Marketplace &rarr;</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== WHAT'S NEW ==================== -->
-<section class="section" id="whatsnew">
-  <div class="container">
-    <div class="section-head center fade-in">
-      <span class="eyebrow">Shipped this week</span>
-      <h2>Fresh from the last few days</h2>
-      <p>mux moves fast. Here's what landed most recently &mdash; the headline being <b>live, cross-surface sync</b> that ties the terminal, desktop, web, and VS Code into one continuous workspace.</p>
-    </div>
-    <div class="features-grid">
-
-      <div class="feature fade-in">
-        <span class="new-tag">v0.12.0</span>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.9v-2a4 4 0 0 1 4-4h14"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.1v2a4 4 0 0 1-4 4H3"/></svg></div>
-        <h3>Live cross-surface sync</h3>
-        <p>A turn you start in the terminal now streams into the desktop app and browser <b>as it happens</b>, and the conversation list updates everywhere with no manual refresh &mdash; all through one shared, anti-truncation session store in <code>Mux.Core</code>.</p>
-      </div>
-
-      <div class="feature fade-in d1">
-        <span class="new-tag">mux serve</span>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6M9 18h4"/></svg></div>
-        <h3>OpenAPI 3.0 + Swagger UI</h3>
-        <p>The local server now publishes a complete OpenAPI 3.0 document and an interactive Swagger UI &mdash; explore and exercise every REST endpoint behind <code>mux serve</code> straight from the browser.</p>
-      </div>
-
-      <div class="feature fade-in d2">
-        <span class="new-tag">VS Code</span>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-        <h3>The VS Code extension, matured</h3>
-        <p>Now on the Marketplace with usage charts (axes + endpoint/model filters), MCP authentication, prompt / subagent / skill CRUD, Markdown-rendered chat, collapsible thinking, and fully localized panels &mdash; all over the shared server and sessions.</p>
-      </div>
-
-      <div class="feature fade-in d3">
-        <span class="new-tag">/cwd</span>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-        <h3>Switch directories mid-session</h3>
-        <p>Repoint the agent at a different project without restarting &mdash; <code>/cwd</code> (aliases <code>/cd</code>, <code>/chdir</code>) changes the working directory in place, and web chats remember it.</p>
-      </div>
-
-      <div class="feature fade-in d4">
-        <span class="new-tag">Everywhere</span>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3>Collapsible "Thinking"</h3>
-        <p>The model's reasoning now folds away behind a consistent, collapsible disclosure across the web dashboard, the desktop app, and VS Code &mdash; expand it when you want it, hide it when you don't.</p>
-      </div>
-
-      <div class="feature fade-in d5">
-        <span class="new-tag">Sessions</span>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 14h6v6h-6z"/><path d="M14 7h3a3 3 0 0 1 3 3M10 17H7a3 3 0 0 1-3-3"/></svg></div>
-        <h3>Full session parity across surfaces</h3>
-        <p>Resume, rename, duplicate, export, and delete the very same sessions from any surface. Persistence is consolidated in <code>Mux.Core</code> with anti-truncation merging, so the whole transcript survives &mdash; never a half-finished turn.</p>
       </div>
 
     </div>
@@ -755,7 +697,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 14h6v6h-6z"/><path d="M14 7h3a3 3 0 0 1 3 3M10 17H7a3 3 0 0 1-3-3"/></svg></div>
         <h3>Live, portable sessions</h3>
-        <p>Terminal, desktop, web, and VS Code share <b>one</b> session store, so a conversation started in any surface mirrors <b>live</b> into every other &mdash; full transcript intact, in any order, no manual refresh. Every surface can resume, rename, duplicate, export, and delete the same sessions; web chats persist server-side and even record their working directory.</p>
+        <p>Terminal, desktop, web, and VS Code share <b>one</b> session store, so a conversation started in any surface mirrors <b>live</b> into every other &mdash; full transcript intact, in any order, no manual refresh. Every surface can resume, rename, duplicate, export, and delete the same sessions; web chats persist server-side and record their working directory &mdash; which you can repoint mid-session with <code>/cwd</code>.</p>
       </div>
 
       <div class="feature fade-in d1">
@@ -815,7 +757,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in d3">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>Reasoning effort</h3>
-        <p>One control &mdash; <code>off</code> to <code>high</code> &mdash; mapped per backend: <code>reasoning_effort</code> for OpenAI, a thinking budget for Gemini, <code>think</code> for Ollama. Optionally surface the model's thinking.</p>
+        <p>One control &mdash; <code>off</code> to <code>high</code> &mdash; mapped per backend: <code>reasoning_effort</code> for OpenAI, a thinking budget for Gemini, <code>think</code> for Ollama. Optionally surface the model's thinking behind a collapsible disclosure &mdash; consistent across web, desktop, and VS Code.</p>
       </div>
 
       <div class="feature fade-in d4">
