@@ -619,7 +619,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="section-head center fade-in">
       <span class="eyebrow">Extend &amp; compose</span>
       <h2>MCP, skills, and subagents &mdash; built in</h2>
-      <p>mux isn't a closed box. Plug in tool servers, encode repeatable procedures, and delegate scoped work to isolated agents &mdash; all configured in plain files or managed live in-app.</p>
+      <p>mux isn't a closed box. Plug in tool servers, encode repeatable procedures, and delegate scoped work to isolated agents &mdash; all configured in plain files or managed live in-app. It works the other way too: <code>mux mcp serve</code> makes mux itself an MCP server.</p>
     </div>
     <div class="extend-grid">
 
@@ -629,7 +629,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
             <span class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"/></svg></span>
             <div><h3>MCP tool servers</h3><div class="ex-tag">/mcp &middot; mcp-servers.json</div></div>
           </div>
-          <p>Define <b>stdio</b> or <b>HTTP</b> Model Context Protocol servers and mux connects live on startup &mdash; discovering each server's tools, exposing them to the model, and showing per-server connectivity. Add, edit, or remove servers without a restart.</p>
+          <p>Define <b>stdio</b> or <b>HTTP</b> Model Context Protocol servers and mux connects live on startup &mdash; discovering each server's tools, exposing them to the model, and showing per-server connectivity, with the exact cause when one fails (connection refused, HTTP status, response body). Add, edit, or remove servers without a restart. And with <b><code>mux mcp serve</code></b> (stdio or Streamable HTTP, built on Voltaic), Claude Code, Codex, or another mux can hand mux a task through its <code>run</code> tool, under an approval ceiling you set.</p>
         </div>
         <div class="ex-code">
           <div class="exc-head">mcp-servers.json</div>
@@ -648,7 +648,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
             <span class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg></span>
             <div><h3>Skills</h3><div class="ex-tag">/skills &middot; ~/.mux/skills</div></div>
           </div>
-          <p>Versioned <b>Markdown-plus-code</b> capabilities that turn a fuzzy request into a fixed, deterministic procedure &mdash; the Markdown carries judgment, the code carries determinism. <b>46 curated defaults</b> ship on first run; author, import, and manage your own in-app.</p>
+          <p>Versioned <b>Markdown-plus-code</b> capabilities that turn a fuzzy request into a fixed, deterministic procedure &mdash; the Markdown carries judgment, the code carries determinism. <b>153 curated defaults</b> ship on first run, covering git, code review, security review, debugging, loops, JavaScript, Python, React, Java, C/C++, Go, Rust, .NET, Docker, Kubernetes, Helm, Terraform, and the major clouds, each listed only where it applies. Run one with <code>/&lt;skill&gt;</code>, check skills into your repo (Claude-format skills work as-is), or author your own in-app.</p>
         </div>
         <div class="ex-code">
           <div class="exc-head">SKILL.md</div>
@@ -667,7 +667,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
             <span class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 21v-1a6 6 0 0 1 12 0v1M15 21v-1a5 5 0 0 1 7-4.5"/></svg></span>
             <div><h3>Subagents</h3><div class="ex-tag">spawn_subagent &middot; subagents.json</div></div>
           </div>
-          <p>Delegate a scoped sub-task to a named subagent. Each runs in an <b>isolated conversation</b> &mdash; its own system prompt, endpoint, and tool allow-list &mdash; and returns only its final answer, keeping the primary agent's context clean.</p>
+          <p>Delegate a scoped sub-task to a named subagent. Each runs in an <b>isolated conversation</b> &mdash; its own system prompt, endpoint, and tool allow-list &mdash; and returns only its final answer, keeping the primary agent's context clean. Set <b><code>"isolation": "worktree"</code></b> and it works in its own git worktree on a <code>mux/</code> branch: unchanged worktrees clean themselves up, and finished work waits on its branch for you to merge.</p>
         </div>
         <div class="ex-code">
           <div class="exc-head">subagents.json</div>
@@ -675,7 +675,8 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   <span class="cm-str">"name"</span>: <span class="cm-str">"reviewer"</span>,
   <span class="cm-str">"endpoint"</span>: <span class="cm-str">"gpt-oss-local"</span>,
   <span class="cm-str">"allowTools"</span>: [<span class="cm-str">"read_file"</span>,
-    <span class="cm-str">"grep"</span>]
+    <span class="cm-str">"grep"</span>],
+  <span class="cm-str">"isolation"</span>: <span class="cm-str">"worktree"</span>
 }</pre>
         </div>
       </div>
@@ -703,31 +704,31 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in d1">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <h3>Built-in tools</h3>
-        <p>File read / write / edit / multi-edit / delete, directory ops, glob, grep, process execution, and rendered web retrieval &mdash; ready on turn one.</p>
+        <p>File read / write / edit / multi-edit / delete, directory ops, glob, grep, process execution, background processes for dev servers and watchers (<code>/processes</code>), persistent memory (<code>remember</code>, <code>#</code> quick-add), <code>ask_user</code>, and rendered web retrieval &mdash; ready on turn one. Type <code>@path</code> to attach files to a prompt.</p>
       </div>
 
       <div class="feature fade-in d1">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"/></svg></div>
         <h3>MCP tool servers</h3>
-        <p>Define <code>stdio</code> / HTTP servers in <code>mcp-servers.json</code> or manage them with <code>/mcp</code>. mux connects live, discovers their tools, and exposes them to the model.</p>
+        <p>Define <code>stdio</code> / HTTP servers in <code>mcp-servers.json</code> or manage them with <code>/mcp</code>. mux connects live, discovers their tools, and exposes them to the model. <code>mux mcp serve</code> exposes mux to other MCP clients in turn.</p>
       </div>
 
       <div class="feature fade-in d2">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg></div>
         <h3>Skills</h3>
-        <p>Versioned Markdown-plus-code capabilities that turn a fuzzy request into a fixed, deterministic procedure. 46 curated defaults ship on first run; author your own in-app.</p>
+        <p>Versioned Markdown-plus-code capabilities that turn a fuzzy request into a fixed, deterministic procedure. 153 curated defaults ship on first run, from <code>code-review</code> and <code>fix-until-green</code> to Kubernetes and cloud CLIs; author your own in-app.</p>
       </div>
 
       <div class="feature fade-in d3">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 21v-1a6 6 0 0 1 12 0v1M15 21v-1a5 5 0 0 1 7-4.5"/></svg></div>
         <h3>Subagents</h3>
-        <p>Delegate a scoped sub-task with <code>spawn_subagent</code>. Each runs in an isolated conversation &mdash; its own prompt, endpoint, and tool allow-list &mdash; and returns only its final answer.</p>
+        <p>Delegate a scoped sub-task with <code>spawn_subagent</code>. Each runs in an isolated conversation &mdash; its own prompt, endpoint, and tool allow-list &mdash; and returns only its final answer. Opt into a git worktree per subagent so parallel work never collides; <code>mux worktree</code> and <code>/worktrees</code> tidy up.</p>
       </div>
 
       <div class="feature fade-in d4">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 20 6"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
         <h3>Background tasks</h3>
-        <p>The model breaks big work into a task DAG and tracks it live &mdash; pending &rarr; running &rarr; done. A <code>task_plan_updated</code> event streams to orchestrators in JSONL mode.</p>
+        <p>The model breaks big work into a task DAG and tracks it live &mdash; pending &rarr; running &rarr; done. A <code>task_plan_updated</code> event streams to orchestrators in JSONL mode. Plan mode (<code>/plan</code>, Shift+Tab) explores read-only first, and <code>/loop</code> re-runs a prompt on an interval or self-paced.</p>
       </div>
 
       <div class="feature fade-in d5">
@@ -751,7 +752,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in d2">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></div>
         <h3>Plugins &amp; hooks</h3>
-        <p>Out-of-process event hooks (<code>session-start</code>, <code>user-prompt-submit</code>, <code>session-end</code>) and custom <code>/slash</code> commands configured in <code>hooks.json</code>.</p>
+        <p>Out-of-process event hooks (<code>session-start</code>, <code>user-prompt-submit</code>, <code>session-end</code>, and tool-level <code>pre-tool-use</code>, <code>post-tool-use</code>, <code>stop</code> with Claude Code's contract) and custom <code>/slash</code> commands configured in <code>hooks.json</code>.</p>
       </div>
 
       <div class="feature fade-in d3">
@@ -866,7 +867,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="section-head center fade-in">
       <span class="eyebrow">Automate everything</span>
       <h2>Headless, deterministic, orchestratable</h2>
-      <p>Drive mux from scripts, CI, or your own orchestrator. Machine-readable JSONL emits one event per line; thin SDKs wrap the same contract in TypeScript and Python.</p>
+      <p>Drive mux from scripts, CI, or your own orchestrator. Machine-readable JSONL emits one event per line; thin SDKs wrap the same contract in TypeScript and Python. Agents can call mux over MCP with <code>mux mcp serve</code>.</p>
     </div>
 
     <div class="code-block-wrap fade-in">
@@ -879,7 +880,10 @@ mux print <span class="cm-flag">--output-format</span> jsonl <span class="cm-fla
   <span class="cm-str">"implement the feature described in TASK.md"</span>
 
 <span class="cm-comment"># constrain the final response to a JSON Schema, or connect MCP servers for one run</span>
-mux print <span class="cm-flag">--output-schema</span> schema.json <span class="cm-flag">--mcp-config</span> mcp.json <span class="cm-flag">--yolo</span> <span class="cm-str">"extract the release notes"</span></pre>
+mux print <span class="cm-flag">--output-schema</span> schema.json <span class="cm-flag">--mcp-config</span> mcp.json <span class="cm-flag">--yolo</span> <span class="cm-str">"extract the release notes"</span>
+
+<span class="cm-comment"># or let another agent drive mux: register it as an MCP server</span>
+claude mcp add mux -- mux mcp serve <span class="cm-flag">--approval-policy</span> auto-safe</pre>
     </div>
 
     <div class="sdk-tabs-grid">
