@@ -495,6 +495,8 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <p class="backends-label fade-in">Bring your own inference &mdash; local or remote, one CLI for all of it</p>
     <div class="backends-row fade-in d1">
       <span class="backend-chip"><span class="bd"></span>Ollama</span>
+      <span class="backend-chip"><span class="bd"></span>Ollama Cloud</span>
+      <span class="backend-chip"><span class="bd"></span>xAI Grok</span>
       <span class="backend-chip"><span class="bd"></span>OpenAI</span>
       <span class="backend-chip"><span class="bd"></span>Azure OpenAI</span>
       <span class="backend-chip"><span class="bd"></span>vLLM</span>
@@ -928,8 +930,8 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
 
       <div class="step fade-in">
         <div class="step-num">1</div>
-        <h3>Start a model runner</h3>
-        <p>mux never manages runners &mdash; bring your own local or remote backend.</p>
+        <h3>Choose a model backend</h3>
+        <p>Bring a local runner, or connect directly to Ollama Cloud, xAI Grok, or another hosted provider.</p>
         <div class="cmd-row"><code>ollama pull qwen2.5-coder:7b</code>
           <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy" data-copy="ollama pull qwen2.5-coder:7b&#10;ollama serve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
@@ -1040,6 +1042,8 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
         <h4>Backends</h4>
         <ul>
           <li><a href="#start">Ollama</a></li>
+          <li><a href="https://github.com/jchristn/Mux#ollama-cloud">Ollama Cloud</a></li>
+          <li><a href="https://github.com/jchristn/Mux#xai-grok">xAI Grok</a></li>
           <li><a href="#start">OpenAI &amp; Azure</a></li>
           <li><a href="#start">vLLM</a></li>
           <li><a href="#start">LM Studio</a></li>
