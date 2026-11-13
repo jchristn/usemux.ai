@@ -498,10 +498,13 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <span class="backend-chip"><span class="bd"></span>Ollama Cloud</span>
       <span class="backend-chip"><span class="bd"></span>xAI Grok</span>
       <span class="backend-chip"><span class="bd"></span>OpenAI</span>
+      <span class="backend-chip"><span class="bd"></span>Anthropic</span>
       <span class="backend-chip"><span class="bd"></span>Azure OpenAI</span>
+      <span class="backend-chip"><span class="bd"></span>AWS Bedrock</span>
       <span class="backend-chip"><span class="bd"></span>vLLM</span>
       <span class="backend-chip"><span class="bd"></span>LM Studio</span>
       <span class="backend-chip"><span class="bd"></span>Gemini</span>
+      <span class="backend-chip"><span class="bd"></span>Vertex AI</span>
       <span class="backend-chip"><span class="bd"></span>Any OpenAI-compatible API</span>
     </div>
   </div>
@@ -535,7 +538,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <span class="cmd">mux serve</span>
         <h3>Local web dashboard</h3>
-        <p>A loopback-bound, token-guarded REST + WebSocket API with a self-contained single-page dashboard &mdash; chat, configuration, sessions, and usage/pricing analytics. Now with a full OpenAPI 3.0 document and Swagger UI. Hosted in the background by a cross-platform system-tray agent.</p>
+        <p>A loopback-bound, token-guarded REST + WebSocket API with a self-contained single-page dashboard &mdash; chat, configuration, sessions, and usage/pricing analytics, with a full OpenAPI 3.0 document and Swagger UI. Hosted by a cross-platform system-tray agent that every surface starts for you.</p>
       </div>
 
       <div class="surface-card fade-in d3">
@@ -602,11 +605,11 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="showcase-row reverse fade-in">
       <div class="sc-text">
         <h3>Observability, built in</h3>
-        <p>Every model call is recorded to a local SQLite database &mdash; tokens, cost, latency, time-to-first-token, streaming, and throughput. Explore it as charts over time, filtered by endpoint and model, in both the dashboard and the desktop app.</p>
+        <p>Every model call is recorded to a local SQLite database &mdash; tokens, cost, latency, time-to-first-token, streaming, throughput, and the reasoning effort actually sent. The same charts, computed by one shared query service, appear in the terminal, the desktop app, the web dashboard, and VS Code, so the numbers match everywhere.</p>
         <ul class="sc-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Tokens, cost, latency, TTFT,</b> streaming, and throughput views</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Filter</b> by endpoint, model, and time range &mdash; hour, day, week, month</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Cost</b> derived from an editable <code>pricing.json</code></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Calls, tokens, cost, and box plots</b> for latency, TTFT, streaming, and throughput, plus a token heatmap</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Split and drill down</b> by model, endpoint, provider, or call kind, from an hour to all time; click any bucket to see its calls</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Export</b> any chart to CSV (and PNG); cost derived from an editable <code>pricing.json</code></span></li>
         </ul>
       </div>
       <div class="sc-visual"><img src="assets/screenshots/web-3.png" alt="mux usage dashboard showing token, cost, and latency charts with per-call history" loading="lazy"></div>
@@ -706,7 +709,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in d1">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <h3>Built-in tools</h3>
-        <p>File read / write / edit / multi-edit / delete, directory ops, glob, grep, process execution, background processes for dev servers and watchers (<code>/processes</code>), persistent memory (<code>remember</code>, <code>#</code> quick-add), <code>ask_user</code>, and rendered web retrieval &mdash; ready on turn one. Type <code>@path</code> to attach files to a prompt.</p>
+        <p>File read / write / edit / multi-edit / delete, directory ops, glob, grep, process execution, background processes for dev servers and watchers (<code>/processes</code>), persistent memory (<code>remember</code>, <code>#</code> quick-add), <code>ask_user</code>, and rendered web retrieval &mdash; ready on turn one. Type <code>@path</code> to attach files to a prompt. Opt-in <code>bash</code> and <code>powershell</code> tools for <code>mux mcp serve</code> clients.</p>
       </div>
 
       <div class="feature fade-in d1">
@@ -742,13 +745,13 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="12" y="6" width="3" height="12"/><rect x="17" y="13" width="3" height="5"/></svg></div>
         <h3>Usage analytics</h3>
-        <p>Every model call is recorded to a local SQLite database &mdash; tokens, cost, time-to-first-token, latency, throughput. View it via <code>/usage</code> or the dashboard's charts.</p>
+        <p>Every model call is recorded to a local SQLite database &mdash; tokens, cost, time-to-first-token, latency, throughput, failures by error code. The same charts, heatmap, drill-down, and CSV export in <code>/usage</code>, the desktop app, the dashboard, and VS Code.</p>
       </div>
 
       <div class="feature fade-in d1">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <h3>Sandbox &amp; approvals</h3>
-        <p>Confinement postures (<code>read-only</code>, <code>workspace-write</code>), tool allow/deny globs, and approval policies &mdash; <code>ask</code>, <code>auto</code>, or <code>deny</code>. Or <code>--yolo</code> for full trust.</p>
+        <p>Confinement postures (<code>read-only</code>, <code>workspace-write</code>), tool allow/deny globs, and approval policies &mdash; <code>ask</code>, <code>auto</code>, or <code>deny</code>. An optional countdown approves an unanswered prompt after <code>toolAutoApproveSeconds</code>. Or <code>--yolo</code> for full trust.</p>
       </div>
 
       <div class="feature fade-in d2">
@@ -760,7 +763,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="feature fade-in d3">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>Reasoning effort</h3>
-        <p>One control &mdash; <code>off</code> to <code>high</code> &mdash; mapped per backend: <code>reasoning_effort</code> for OpenAI, a thinking budget for Gemini, <code>think</code> for Ollama. Optionally surface the model's thinking behind a collapsible disclosure &mdash; consistent across web, desktop, and VS Code.</p>
+        <p>One control &mdash; <code>none</code> through <code>xhigh</code> and <code>max</code> &mdash; mapped per backend: <code>reasoning.effort</code> on OpenAI's Responses API (with encrypted reasoning carried across tool calls and resume), a thinking budget for Gemini, <code>think</code> for Ollama. The effort actually sent is recorded with every call. Optionally surface the model's thinking behind a collapsible disclosure &mdash; consistent across web, desktop, and VS Code.</p>
       </div>
 
       <div class="feature fade-in d4">
@@ -787,11 +790,11 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         <div>
           <span class="eyebrow">Ridiculous configurability</span>
           <h2 style="margin-bottom:16px;">Tune every knob. <span class="gradient-text">Or none of them.</span></h2>
-          <p style="color:var(--text-secondary);font-size:16px;margin-bottom:32px;line-height:1.65;">Sensible defaults on first run, and a setting for everything underneath. Config lives in plain JSON under <code style="font-family:var(--font-mono);color:var(--accent);">~/.mux</code> &mdash; or a fully isolated directory via <code style="font-family:var(--font-mono);color:var(--accent);">MUX_CONFIG_DIR</code>.</p>
+          <p style="color:var(--text-secondary);font-size:16px;margin-bottom:32px;line-height:1.65;">Sensible defaults on first run, and a setting for everything underneath. Config lives in plain JSON under <code style="font-family:var(--font-mono);color:var(--accent);">~/.mux</code> &mdash; or a fully isolated directory via <code style="font-family:var(--font-mono);color:var(--accent);">MUX_CONFIG_DIR</code>. A typo in a config file is reported with the file, line, and column.</p>
           <div class="config-list">
             <div class="config-item">
               <span class="ci-num">01</span>
-              <div><h4>Endpoints &amp; models</h4><p>Adapters, base URLs, auth modes, per-endpoint reasoning effort, auto-approval, and iteration caps.</p></div>
+              <div><h4>Endpoints &amp; models</h4><p>Adapters, base URLs, API keys (or a standard env var), per-endpoint reasoning effort, auto-approval, and iteration caps. Import models straight from each provider's model API.</p></div>
             </div>
             <div class="config-item">
               <span class="ci-num">02</span>
@@ -815,13 +818,11 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   <span class="cm-str">"adapterType"</span>: <span class="cm-str">"ollama"</span>,
   <span class="cm-str">"baseUrl"</span>: <span class="cm-str">"http://localhost:11434"</span>,
   <span class="cm-str">"model"</span>: <span class="cm-str">"gpt-oss:120b"</span>,
-  <span class="cm-str">"reasoningEffort"</span>: <span class="cm-str">"high"</span>,
+  <span class="cm-str">"reasoningEffort"</span>: { <span class="cm-str">"level"</span>: <span class="cm-str">"high"</span> },
   <span class="cm-str">"autoApproveTools"</span>: <span class="cm-kw">false</span>,
   <span class="cm-str">"showThinking"</span>: <span class="cm-kw">true</span>,
-  <span class="cm-str">"auth"</span>: {
-    <span class="cm-str">"mode"</span>: <span class="cm-str">"bearer"</span>,
-    <span class="cm-str">"token"</span>: <span class="cm-str">"${OLLAMA_TOKEN}"</span>  <span class="cm-comment">// from env</span>
-  }
+  <span class="cm-str">"apiKey"</span>: <span class="cm-str">"${OLLAMA_TOKEN}"</span>,  <span class="cm-comment">// from env</span>
+  <span class="cm-str">"authPlacement"</span>: <span class="cm-str">"bearer"</span>
 }</pre>
         </div>
       </div>
@@ -931,7 +932,7 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
       <div class="step fade-in">
         <div class="step-num">1</div>
         <h3>Choose a model backend</h3>
-        <p>Bring a local runner, or connect directly to Ollama Cloud, xAI Grok, or another hosted provider.</p>
+        <p>Bring a local runner, or connect to OpenAI, Anthropic, Gemini, xAI Grok, Ollama Cloud, or another hosted provider with an API key (<code>OPENAI_API_KEY</code>, <code>ANTHROPIC_API_KEY</code>, and friends are picked up automatically).</p>
         <div class="cmd-row"><code>ollama pull qwen2.5-coder:7b</code>
           <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy" data-copy="ollama pull qwen2.5-coder:7b&#10;ollama serve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
@@ -940,9 +941,9 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
       <div class="step fade-in d1">
         <div class="step-num">2</div>
         <h3>Clone &amp; install</h3>
-        <p>Install scripts default to .NET 10 when available and fall back to .NET 8.</p>
+        <p>One script folder per platform installs the CLI, the desktop app, and the tray agent. Defaults to .NET 10, falling back to .NET 8.</p>
         <div class="cmd-row"><code>git clone &amp;&amp; install-tool</code>
-          <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy" data-copy="git clone https://github.com/jchristn/mux.git&#10;cd mux&#10;./install-tool.sh   # or install-tool.bat on Windows"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy" data-copy="git clone https://github.com/jchristn/mux.git&#10;cd mux&#10;./scripts/macos/install-tool.sh   # or scripts/linux, scripts/wsl2, scripts\windows\install-tool.bat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
       </div>
 
