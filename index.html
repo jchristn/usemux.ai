@@ -251,6 +251,42 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 .surface-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 13.5px; font-weight: 600; color: var(--accent); text-decoration: none; }
 .surface-link:hover { text-decoration: underline; }
 
+/* ============================= MUX CLOUD ============================= */
+.cloud-row { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
+.cloud-row .sc-text h3 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 18px; }
+.cloud-row .sc-list { margin-bottom: 28px; }
+.cloud-row .sc-list code, .cloud-surfaces code { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); background: var(--accent-subtle); padding: 1px 6px; border-radius: 5px; }
+.cloud-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.cloud-ctas .btn { padding: 13px 24px; font-size: 15px; }
+.cloud-mock { border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg-primary); box-shadow: var(--shadow-lg); overflow: hidden; }
+.cloud-mock-bar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 12.5px; color: var(--text-tertiary); }
+.cloud-mock-bar .url { flex: 1; text-align: center; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 5px 12px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cloud-mock-bar .tdot { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); flex-shrink: 0; }
+.cloud-mock-body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.cloud-mock-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 4px 6px; }
+.cloud-mock-head b { font-size: 16px; color: var(--text-primary); }
+.cloud-mock-head span { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); }
+.cloud-machine { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-elev); }
+.cloud-machine .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--text-tertiary); }
+.cloud-machine .dot.on { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.cloud-machine .dot.wait { background: var(--amber); box-shadow: 0 0 10px rgba(227,179,65,0.5); }
+.cloud-machine .info { flex: 1; min-width: 0; }
+.cloud-machine .name { font-weight: 600; font-size: 14.5px; color: var(--text-primary); }
+.cloud-machine .meta { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cloud-tag { font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-pill); border: 1px solid var(--border); white-space: nowrap; color: var(--text-secondary); background: var(--bg-elev); }
+.cloud-tag.on { color: var(--accent); background: var(--accent-subtle); }
+.cloud-tag.wait { color: var(--amber); background: rgba(227,179,65,0.1); }
+.cloud-surfaces { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 28px; }
+.cloud-mobile { margin-top: clamp(56px, 8vw, 96px); display: grid; grid-template-columns: auto 1fr auto; gap: clamp(22px, 4vw, 44px); align-items: center; border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px); background: linear-gradient(160deg, var(--bg-elev) 0%, var(--panel-tint) 100%); padding: clamp(28px, 4vw, 44px); }
+.cloud-mobile .surface-icon { width: 64px; height: 64px; border-radius: 16px; margin-bottom: 0; }
+.cloud-mobile .surface-icon svg { width: 30px; height: 30px; }
+.cloud-mobile h3 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.cloud-mobile p { color: var(--text-secondary); font-size: 15.5px; line-height: 1.65; max-width: 620px; }
+.soon-pill { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); background: rgba(227,179,65,0.1); border: 1px solid rgba(227,179,65,0.35); padding: 4px 10px; border-radius: var(--radius-pill); }
+.platforms { display: flex; flex-direction: column; gap: 8px; }
+.platforms span { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--text-secondary); border: 1px solid var(--border); background: var(--bg-elev); border-radius: var(--radius-pill); padding: 7px 14px; white-space: nowrap; }
+.platforms svg { width: 15px; height: 15px; color: var(--accent); }
+
 /* ============================= SHOWCASE ============================= */
 .showcase-row { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(36px, 6vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 120px); }
 .showcase-row:last-child { margin-bottom: 0; }
@@ -382,20 +418,26 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 .fade-in.d4 { transition-delay: 0.24s; } .fade-in.d5 { transition-delay: 0.3s; } .fade-in.d6 { transition-delay: 0.36s; }
 
 /* ============================= RESPONSIVE ============================= */
+/* The section links move into the menu before they crowd the brand and the Log in / Sign up actions. */
+@media (max-width: 1219px) {
+  .nav-links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px; padding: 16px; background: var(--bg-nav); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 14px; }
+  .nav-toggle { display: block; }
+}
 @media (max-width: 960px) {
   .features-grid, .steps, .docs-grid { grid-template-columns: repeat(2, 1fr); }
   .surfaces-grid { grid-template-columns: 1fr; }
   .showcase-row, .showcase-row.reverse { grid-template-columns: 1fr; }
   .showcase-row.reverse .sc-text { order: 0; }
+  .cloud-row { grid-template-columns: 1fr; }
+  .cloud-mobile { grid-template-columns: auto 1fr; }
+  .cloud-mobile .platforms { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
   .config-grid { grid-template-columns: 1fr; }
   .sdk-tabs-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 720px) {
-  .nav-links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px; padding: 16px; background: var(--bg-nav); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 14px; }
-  .nav-toggle { display: block; }
   .nav-github span { display: none; }
   .nav-github { padding: 9px 11px; }
   .nav-login { padding: 9px 8px; }
@@ -405,6 +447,8 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   .hero-meta { gap: 14px; }
   .hero-logo { width: clamp(190px, 56vw, 300px); margin-bottom: 26px; }
   .terminal-body { font-size: 12px; }
+  .cloud-mobile { grid-template-columns: 1fr; }
+  .cloud-machine { padding: 12px 13px; gap: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .fade-in { opacity: 1; transform: none; transition: none; }
@@ -429,6 +473,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <a href="#" class="nav-brand"><img src="assets/logo-green.png" alt="mux logo"></a>
     <div class="nav-links" id="navLinks">
       <a href="#surfaces">Surfaces</a>
+      <a href="#cloud">Cloud</a>
       <a href="#showcase">Interface</a>
       <a href="#extend">Extend</a>
       <a href="#features">Features</a>
@@ -562,6 +607,61 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         <a class="surface-link" href="https://marketplace.visualstudio.com/items?itemName=usemux.mux-ai" target="_blank" rel="noopener">Install from the VS Code Marketplace &rarr;</a>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MUX CLOUD ==================== -->
+<section class="section" id="cloud">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <span class="eyebrow">Mux Cloud</span>
+      <h2>Your machines, <span class="gradient-text">from anywhere</span></h2>
+      <p>Mux Cloud keeps your computers connected, so you can pick up where you left off from any browser. Your conversations stay on your machines. Mux Cloud only relays them.</p>
+    </div>
+
+    <div class="cloud-row">
+      <div class="sc-text fade-in">
+        <h3>Access from anywhere</h3>
+        <p>Sign in at <a href="https://app.usemux.ai" style="color:var(--accent);font-weight:600">app.usemux.ai</a>, choose a machine, and use mux exactly as if you were sitting at it.</p>
+        <ul class="sc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Pick a machine</b> and see its conversations, keep working, or start a new one in any folder</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Live status</b> shows which machines are online, busy, or waiting on you, across all your computers</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Approve tools</b> from wherever you are, or keep remote use read-only per machine</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Nothing stored in the cloud.</b> Conversations and files stay on your machine</span></li>
+        </ul>
+        <div class="cloud-surfaces">
+          <code>mux cloud login</code><code>/cloud</code><code>Desktop</code><code>Dashboard</code><code>VS Code</code><code>Tray</code>
+        </div>
+        <p style="font-size:15px;margin-top:-12px">Connect a machine from any of these with your email and password. The password is never stored.</p>
+        <div class="cloud-ctas">
+          <a href="https://app.usemux.ai/signup" class="btn btn-primary">Sign up for Mux Cloud</a>
+          <a href="https://app.usemux.ai/login" class="btn btn-secondary">Log in</a>
+        </div>
+      </div>
+
+      <div class="cloud-mock fade-in d1" aria-hidden="true">
+        <div class="cloud-mock-bar"><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span><span class="url">app.usemux.ai/machines</span></div>
+        <div class="cloud-mock-body">
+          <div class="cloud-mock-head"><b>Machines</b><span>2 of 3 online</span></div>
+          <div class="cloud-machine"><span class="dot wait"></span><div class="info"><div class="name">studio-mac</div><div class="meta">macOS &middot; checkout-service</div></div><span class="cloud-tag wait">Needs approval</span></div>
+          <div class="cloud-machine"><span class="dot on"></span><div class="info"><div class="name">build-box</div><div class="meta">Ubuntu &middot; 2 runs</div></div><span class="cloud-tag on">Online</span></div>
+          <div class="cloud-machine"><span class="dot"></span><div class="info"><div class="name">travel-laptop</div><div class="meta">Windows &middot; seen 2h ago</div></div><span class="cloud-tag">Offline</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cloud-mobile fade-in">
+      <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+      <div>
+        <h3>Mobile apps <span class="soon-pill">Coming soon</span></h3>
+        <p>Your machines in your pocket: see what is running, read and continue conversations, approve tools, and get a notification when a run needs you or finishes.</p>
+      </div>
+      <div class="platforms">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/></svg>iPhone</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2.5"/></svg>iPad</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="9" y1="5" x2="15" y2="5"/></svg>Android</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1036,6 +1136,7 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
         <h4>Product</h4>
         <ul>
           <li><a href="#surfaces">Surfaces</a></li>
+          <li><a href="#cloud">Mux Cloud</a></li>
           <li><a href="#showcase">Interface</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#configure">Configure</a></li>
@@ -1045,6 +1146,7 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
       <div class="footer-col">
         <h4>Resources</h4>
         <ul>
+          <li><a href="https://app.usemux.ai/login">Mux Cloud log in</a></li>
           <li><a href="https://github.com/jchristn/mux" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://github.com/jchristn/mux/blob/main/docs/CONFIG.md" target="_blank" rel="noopener">Config Reference</a></li>
           <li><a href="https://github.com/jchristn/mux/blob/main/docs/REST_API.md" target="_blank" rel="noopener">REST API</a></li>
