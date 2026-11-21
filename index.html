@@ -283,10 +283,20 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 .cloud-mobile .surface-icon svg { width: 30px; height: 30px; }
 .cloud-mobile h3 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .cloud-mobile p { color: var(--text-secondary); font-size: 15.5px; line-height: 1.65; max-width: 620px; }
-.soon-pill { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); background: rgba(227,179,65,0.1); border: 1px solid rgba(227,179,65,0.35); padding: 4px 10px; border-radius: var(--radius-pill); }
-.platforms { display: flex; flex-direction: column; gap: 8px; }
-.platforms span { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--text-secondary); border: 1px solid var(--border); background: var(--bg-elev); border-radius: var(--radius-pill); padding: 7px 14px; white-space: nowrap; }
-.platforms svg { width: 15px; height: 15px; color: var(--accent); }
+.store-badges { display: flex; flex-direction: column; gap: 10px; }
+.store-badge { display: inline-flex; align-items: center; gap: 12px; min-width: 196px; padding: 10px 18px; border-radius: 12px; border: 1px solid var(--border-strong); background: var(--bg-elev); color: var(--text-primary); text-decoration: none; transition: all 0.25s var(--ease); }
+.store-badge:hover { border-color: var(--accent); background: var(--accent-subtle); transform: translateY(-2px); }
+.store-badge svg { width: 24px; height: 24px; flex-shrink: 0; }
+.store-badge .sb-text { display: flex; flex-direction: column; line-height: 1.15; }
+.store-badge .sb-small { font-size: 11px; font-weight: 500; color: var(--text-secondary); }
+.store-badge .sb-big { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.cloud-mobile .setup-intro { margin-top: 18px; font-size: 14.5px; color: var(--text-primary); font-weight: 600; }
+.setup-steps { list-style: none; counter-reset: setup; display: flex; flex-direction: column; gap: 10px; margin-top: 12px; max-width: 620px; }
+.setup-steps li { counter-increment: setup; display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.55; color: var(--text-secondary); }
+.setup-steps li::before { content: counter(setup); flex-shrink: 0; width: 24px; height: 24px; margin-top: -1px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-subtle); border: 1px solid var(--border); }
+.setup-steps b { color: var(--text-primary); font-weight: 600; }
+.setup-steps a { color: var(--accent); font-weight: 600; }
+.surface-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 
 /* ============================= SHOWCASE ============================= */
 .showcase-row { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(36px, 6vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 120px); }
@@ -433,7 +443,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
   .showcase-row.reverse .sc-text { order: 0; }
   .cloud-row { grid-template-columns: 1fr; }
   .cloud-mobile { grid-template-columns: auto 1fr; }
-  .cloud-mobile .platforms { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+  .cloud-mobile .store-badges { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
   .config-grid { grid-template-columns: 1fr; }
   .sdk-tabs-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -506,7 +516,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     </h1>
     <p class="hero-sub fade-in d3">
       <strong>mux</strong> is a Claude Code&ndash;class coding agent that runs on your machines, with the backend and model <em>you</em> choose:
-      a terminal UI, a desktop app, a web dashboard, your IDE, or fully headless. With Mux Cloud, use it from any browser, and soon from your phone. Zero vendor lock-in.
+      a terminal UI, a desktop app, a web dashboard, your IDE, or fully headless. With Mux Cloud, use it from any browser or the Mux Cloud app on iPhone, iPad, and Android. Zero vendor lock-in.
     </p>
     <div class="hero-ctas fade-in d4">
       <a href="#start" class="btn btn-primary btn-lg">Get Started</a>
@@ -575,7 +585,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="section-head center fade-in">
       <span class="eyebrow">One engine, every surface</span>
       <h2>Use it however you work</h2>
-      <p>The terminal UI, the desktop app, the web dashboard, and the VS Code extension all share one core (<code>Mux.Core</code>): same agent, same tools, same sessions. A turn you start in one <b>mirrors live</b> into the others. Mux Cloud brings the same machines to any browser, with mobile apps on the way. It's also fully headless: <code>mux print</code> streams JSONL for CI and any shell pipeline.</p>
+      <p>The terminal UI, the desktop app, the web dashboard, and the VS Code extension all share one core (<code>Mux.Core</code>): same agent, same tools, same sessions. A turn you start in one <b>mirrors live</b> into the others. Mux Cloud brings the same machines to any browser and to the Mux Cloud app on iPhone, iPad, and Android. It's also fully headless: <code>mux print</code> streams JSONL for CI and any shell pipeline.</p>
     </div>
     <div class="surfaces-grid">
 
@@ -619,8 +629,12 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
       <div class="surface-card fade-in d5">
         <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
         <span class="cmd">iPhone &middot; iPad &middot; Android</span>
-        <h3>Mobile Apps <span class="soon-pill">Coming soon</span></h3>
-        <p>Your machines in your pocket: see what is running, read and continue conversations, approve tools, and get a notification when a run needs you or finishes.</p>
+        <h3>Mobile Apps</h3>
+        <p>Your machines in your pocket: see what is running, read and continue conversations, approve tools, and get a notification when a run needs you or finishes. Requires mux installed on a computer and connected to Mux Cloud.</p>
+        <div class="surface-links">
+          <a class="surface-link" href="https://apps.apple.com/us/app/mux-cloud/id6837555331" target="_blank" rel="noopener">App Store &rarr;</a>
+          <a class="surface-link" href="https://play.google.com/store/apps/details?id=ai.usemux.app" target="_blank" rel="noopener">Google Play &rarr;</a>
+        </div>
       </div>
 
     </div>
@@ -670,13 +684,19 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="cloud-mobile fade-in">
       <div class="surface-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
       <div>
-        <h3>Mobile apps <span class="soon-pill">Coming soon</span></h3>
+        <h3>Mobile apps for iPhone, iPad, and Android</h3>
         <p>Your machines in your pocket: see what is running, read and continue conversations, approve tools, and get a notification when a run needs you or finishes.</p>
+        <p class="setup-intro">The app connects to mux running on your own computer. To get set up:</p>
+        <ol class="setup-steps">
+          <li><span><b>Install mux on your computer</b> from the <a href="https://github.com/jchristn/Mux/releases/tag/v2.0.0" target="_blank" rel="noopener">latest release</a> and point it at your model runners (Ollama, vLLM, OpenAI, and <a href="#start">others</a>).</span></li>
+          <li><span><b>Install the Mux Cloud app</b> on your phone or tablet from the <a href="https://apps.apple.com/us/app/mux-cloud/id6837555331" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=ai.usemux.app" target="_blank" rel="noopener">Google Play</a>.</span></li>
+          <li><span><b>Create a Mux Cloud account</b> at <a href="https://app.usemux.ai/signup">app.usemux.ai/signup</a>.</span></li>
+          <li><span><b>Link your computer</b> by running <code>mux cloud login</code> in a terminal on it, then sign in to the app with the same account.</span></li>
+        </ol>
       </div>
-      <div class="platforms">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/></svg>iPhone</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2.5"/></svg>iPad</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="9" y1="5" x2="15" y2="5"/></svg>Android</span>
+      <div class="store-badges">
+        <a class="store-badge" href="https://apps.apple.com/us/app/mux-cloud/id6837555331" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span class="sb-text"><span class="sb-small">Download on the</span><span class="sb-big">App Store</span></span></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=ai.usemux.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span class="sb-text"><span class="sb-small">Get it on</span><span class="sb-big">Google Play</span></span></a>
       </div>
     </div>
   </div>
@@ -1163,6 +1183,8 @@ result = mux.<span class="cm-fn">run</span>(<span class="cm-str">"implement the 
         <h4>Resources</h4>
         <ul>
           <li><a href="https://app.usemux.ai/login">Mux Cloud log in</a></li>
+          <li><a href="https://apps.apple.com/us/app/mux-cloud/id6837555331" target="_blank" rel="noopener">iOS app (App Store)</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=ai.usemux.app" target="_blank" rel="noopener">Android app (Google Play)</a></li>
           <li><a href="https://github.com/jchristn/mux" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://github.com/jchristn/mux/blob/main/docs/CONFIG.md" target="_blank" rel="noopener">Config Reference</a></li>
           <li><a href="https://github.com/jchristn/mux/blob/main/docs/REST_API.md" target="_blank" rel="noopener">REST API</a></li>
