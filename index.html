@@ -311,6 +311,11 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
 .sc-list li b { color: var(--text-primary); font-weight: 600; }
 .sc-visual { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-lg); background: var(--bg-code); }
 .sc-visual img { width: 100%; display: block; }
+.sc-visual.sc-phones { display: flex; justify-content: center; align-items: flex-start; gap: clamp(14px, 3vw, 28px); border: 0; border-radius: 0; box-shadow: none; background: none; overflow: visible; }
+.sc-phones img { width: 46%; max-width: 290px; border-radius: clamp(22px, 3.2vw, 36px); border: 1px solid var(--border-strong); box-shadow: var(--shadow-lg); }
+.sc-phones img + img { margin-top: clamp(28px, 5vw, 56px); }
+.sc-text .surface-links { margin-top: 22px; }
+.sc-text .surface-links .surface-link { margin-top: 0; font-size: 14.5px; }
 
 /* ============================= FEATURES GRID ============================= */
 .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -709,7 +714,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
     <div class="section-head center fade-in">
       <span class="eyebrow">See it work</span>
       <h2>The same agent, on every surface</h2>
-      <p>mux turns the model into a real system operator &mdash; reading and writing files, running commands, browsing the web &mdash; and gives it to you in the terminal, the browser, and a native desktop app.</p>
+      <p>mux turns the model into a real system operator &mdash; reading and writing files, running commands, browsing the web &mdash; and gives it to you in the terminal, the browser, a native desktop app, and on your phone.</p>
     </div>
 
     <div class="showcase-row fade-in">
@@ -763,6 +768,28 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
         </ul>
       </div>
       <div class="sc-visual"><img src="assets/screenshots/web-3.png" alt="mux usage dashboard showing token, cost, and latency charts with per-call history" loading="lazy"></div>
+    </div>
+
+    <div class="showcase-row fade-in">
+      <div class="sc-text">
+        <h3>On the go, in your pocket</h3>
+        <p>The Mux Cloud app for iPhone, iPad, and Android puts every connected machine on your phone. Check on a long run from the couch, answer a tool approval from the train, or start a new conversation in any folder, all in the same sessions you use at your desk.</p>
+        <ul class="sc-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Live mirroring</b>: a run started in the terminal, desktop app, or VS Code streams to your phone as it happens</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Approve, approve for the session, or deny</b> tool calls, with an inbox of everything waiting on you</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Notifications</b> when a run needs you or finishes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Choose the endpoint and plan mode</b> per conversation, in light or dark, with split view on iPad</span></li>
+        </ul>
+        <div class="surface-links">
+          <a class="surface-link" href="https://apps.apple.com/us/app/mux-cloud/id6837555331" target="_blank" rel="noopener">App Store &rarr;</a>
+          <a class="surface-link" href="https://play.google.com/store/apps/details?id=ai.usemux.app" target="_blank" rel="noopener">Google Play &rarr;</a>
+          <a class="surface-link" href="#cloud">Setup steps &rarr;</a>
+        </div>
+      </div>
+      <div class="sc-visual sc-phones">
+        <img src="assets/screenshots/mobile-0.png" alt="Mux Cloud iPhone app in dark mode showing a conversation on a connected machine, with the model, time, and token count" loading="lazy">
+        <img src="assets/screenshots/mobile-1.png" alt="Mux Cloud iPhone app asking to approve a run_process tool call, with Approve, Approve for session, and Deny buttons" loading="lazy">
+      </div>
     </div>
 
   </div>
